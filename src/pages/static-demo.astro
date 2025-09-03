@@ -1,0 +1,50 @@
+---
+// This is build-time code that runs once during build
+export const prerender = true; // Force this page to be static
+
+const buildTime = new Date().toISOString();
+const buildNumber = Math.floor(Math.random() * 1000);
+const staticMessage = "This content was generated at build time and will be the same for all users!";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Static Demo - Astro</title>
+  </head>
+  <body>
+    <h1>Static Site Generation (SSG) Page</h1>
+    
+    <div style="background: #e8f5e8; padding: 20px; margin: 20px 0; border-radius: 8px;">
+      <h2>Build-Time Generated Data:</h2>
+      <p><strong>Build Time:</strong> {buildTime}</p>
+      <p><strong>Build Number:</strong> {buildNumber}</p>
+      <p><strong>Message:</strong> {staticMessage}</p>
+      <p><strong>Page Type:</strong> Static (pre-rendered)</p>
+    </div>
+
+    <div style="background: #fff3cd; padding: 20px; margin: 20px 0; border-radius: 8px;">
+      <h3>What's happening?</h3>
+      <p>This page was rendered at <strong>build time</strong>. The timestamp and random number above will remain the same no matter how many times you refresh the page!</p>
+      <p>This is perfect for content that doesn't change often, like blog posts, documentation, or marketing pages.</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px;">
+      <h3>Static vs SSR Comparison:</h3>
+      <ul>
+        <li><strong>Static (this page):</strong> Fast loading, cached, same content for everyone</li>
+        <li><strong>SSR (ssr-demo page):</strong> Dynamic content, personalized, runs on each request</li>
+      </ul>
+    </div>
+
+    <nav style="margin-top: 2rem;">
+      <a href="/" style="margin-right: 1rem;">← Back to Home</a>
+      <a href="/ssr-demo" style="background: #007acc; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px;">
+        Compare with SSR Demo →
+      </a>
+    </nav>
+  </body>
+</html>

@@ -1,4 +1,6 @@
 ---
+export const prerender = true; // Make this page static
+
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
@@ -9,10 +11,15 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<Welcome />
 	<div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-		<h2>SSR Demo Available</h2>
-		<p>Check out the server-side rendered page:</p>
-		<a href="/ssr-demo" style="display: inline-block; padding: 0.5rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 4px;">
-			View SSR Demo →
-		</a>
+		<h2>Rendering Demos Available</h2>
+		<p>Compare different rendering approaches:</p>
+		<div style="display: flex; gap: 1rem; margin-top: 1rem;">
+			<a href="/static-demo" style="display: inline-block; padding: 0.5rem 1rem; background: #28a745; color: white; text-decoration: none; border-radius: 4px;">
+				Static Demo →
+			</a>
+			<a href="/ssr-demo" style="display: inline-block; padding: 0.5rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 4px;">
+				SSR Demo →
+			</a>
+		</div>
 	</div>
 </Layout>
